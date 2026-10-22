@@ -1,0 +1,54 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "Games",
+	"Description": "Open-world shooter with driving mechanics",
+	"Modules": [
+		{
+			"Name": "ShooterGame",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"CoreUObject",
+				"Engine",
+				"Slate",
+				"SlateCore",
+				"InputCore",
+				"GameplayTags",
+				"GameplayTasks",
+				"EnhancedInput",
+				"ChaosVehicles",
+				"ChaosVehiclesEngine",
+				"ChaosVehiclesData",
+				"CommonUI",
+				"DeveloperSettings",
+				"NavigationSystem",
+				"AIModule",
+				"AudioMixer"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "ChaosVehicles",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true,
+			"MarketplaceURL": "BuiltIn"
+		},
+		{
+			"Name": "WorldPartition",
+			"Enabled": true
+		}
+	]
+}

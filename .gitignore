@@ -1,0 +1,60 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+
+# Unreal Engine
+Binaries/
+Intermediate/
+Saved/
+Build/
+DerivedDataCache/
+Releases/
+*.sln
+*.sln.DotSettings
+*.sln.DotSettings.user
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.vcxproj.relevantfilelist
+*.vcxproj.order
+*.vcxproj.INI
+*.vcproj
+
+# Unreal Engine generated files
+*.tlog
+*.idb
+*.obj
+*.map
+*.success
+*.cache
+*.o
+*.log
+
+# Crash reports
+CrashReportClient/
+CrashReports/
+
+# Backup files
+*.bak
+*.tmp
+
+# OS files
+Thumbs.db
+.DS_Store
+ehthumbs.db
+Desktop.ini
+
+# Keep the Config directory
+!Config/
+!Config/**
