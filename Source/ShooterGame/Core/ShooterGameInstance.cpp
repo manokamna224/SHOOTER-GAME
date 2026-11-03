@@ -1,26 +1,26 @@
 #include "ShooterGameInstance.h"
 #include "ShooterGame.h"
 
-AShooterGameInstance::AShooterGameInstance()
+UShooterGameInstance::UShooterGameInstance()
 {
     GameSettingsAsset = nullptr;
 }
 
-void AShooterGameInstance::Init()
+void UShooterGameInstance::Init()
 {
     Super::Init();
 
     UE_LOG(LogShooterGame, Log, TEXT("ShooterGameInstance initialized."));
 }
 
-void AShooterGameInstance::Shutdown()
+void UShooterGameInstance::Shutdown()
 {
     UE_LOG(LogShooterGame, Log, TEXT("ShooterGameInstance shutting down."));
 
     Super::Shutdown();
 }
 
-void AShooterGameInstance::OnWorldPartitionLoaded()
+void UShooterGameInstance::OnWorldPartitionLoaded()
 {
     UE_LOG(LogShooterGame, Log, TEXT("World Partition level loaded."));
 }

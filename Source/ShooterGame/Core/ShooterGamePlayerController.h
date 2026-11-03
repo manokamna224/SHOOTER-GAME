@@ -89,6 +89,7 @@ protected:
     /** Switches the active Input Mapping Context between infantry and vehicle */
     void SwitchInputContext(bool bToVehicle);
 
+public:
     /** Blueprint hook called after entering a vehicle (for HUD/camera swaps) */
     UFUNCTION(BlueprintImplementableEvent, Category = "ShooterGame|Vehicle", meta = (DisplayName = "On Entered Vehicle"))
     void BP_OnEnteredVehicle(ABaseVehicle* EnteredVehicle);
@@ -96,6 +97,8 @@ protected:
     /** Blueprint hook called after exiting a vehicle */
     UFUNCTION(BlueprintImplementableEvent, Category = "ShooterGame|Vehicle", meta = (DisplayName = "On Exited Vehicle"))
     void BP_OnExitedVehicle(ABaseVehicle* ExitedVehicle);
+
+protected:
 
 private:
     // ─────────────────────────────────────────────────────────────

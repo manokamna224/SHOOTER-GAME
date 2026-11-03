@@ -12,12 +12,12 @@
  * cross-level data that must survive level transitions.
  */
 UCLASS()
-class SHOOTERGAME_API AShooterGameInstance : public UGameInstance
+class SHOOTERGAME_API UShooterGameInstance : public UGameInstance
 {
     GENERATED_BODY()
 
 public:
-    AShooterGameInstance();
+    UShooterGameInstance();
 
 protected:
     virtual void Init() override;

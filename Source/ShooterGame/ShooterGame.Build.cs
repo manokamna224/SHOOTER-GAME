@@ -6,7 +6,24 @@ public class ShooterGame : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-        // Public engine module dependencies
+        // Disable unity build to reduce peak memory usage on low-RAM machines
+        bUseUnity = false;
+
+        // Add the module root to include paths so ShooterGame.h is
+        // resolvable from all subdirectories (Core/, Weapons/, AI/)
+        PublicIncludePaths.AddRange(new string[]
+        {
+            "ShooterGame",
+        });
+
+        PrivateIncludePaths.AddRange(new string[]
+        {
+            "ShooterGame",
+            "ShooterGame/Core",
+            "ShooterGame/Weapons",
+            "ShooterGame/AI",
+        });
+
         PublicDependencyModuleNames.AddRange(new string[]
         {
             "Core",
@@ -14,37 +31,23 @@ public class ShooterGame : ModuleRules
             "Engine",
             "InputCore",
             "NavigationSystem",
+            "GameplayAbilities",
+            "GameplayTags",
+            "GameplayTasks",
         });
 
-        // Private engine module dependencies
         PrivateDependencyModuleNames.AddRange(new string[]
         {
             "Slate",
             "SlateCore",
-            "GameplayTags",
-            "GameplayTasks",
             "EnhancedInput",
             "ChaosVehicles",
-            "ChaosVehiclesEngine",
-            "ChaosVehiclesData",
+            "PhysicsCore",
+            "Chaos",
+            "AIModule",
             "CommonUI",
             "DeveloperSettings",
-            "AIModule",
-            "AudioMixer",
-            "PhysicsCore",
             "Niagara",
-            "Chaos",
-            "FieldSystemCore",
-            "FieldSystemEngine",
         });
-
-        // Gameplay Ability System (GAS) - weapons, abilities, attribute sets
-        PublicDependencyModuleNames.AddRange(new string[]
-        {
-            "GameplayAbilities",
-        });
-
-        // For UAbilitySystemComponent and related GAS types
-        PrivateDependencyModuleNames.Add("GameplayAbilities");
     }
 }

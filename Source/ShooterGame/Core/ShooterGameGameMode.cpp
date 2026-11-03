@@ -1,7 +1,7 @@
 #include "ShooterGameGameMode.h"
 #include "ShooterGame.h"
-#include "Core/BaseCharacter.h"
-#include "Core/BaseVehicle.h"
+#include "BaseCharacter.h"
+#include "BaseVehicle.h"
 #include "Kismet/GameplayStatics.h"
 
 AShooterGameGameMode::AShooterGameGameMode()

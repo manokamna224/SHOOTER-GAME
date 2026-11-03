@@ -52,6 +52,7 @@ public:
     //  AActor
     // ─────────────────────────────────────────────────────────────
     virtual void BeginPlay() override;
+    virtual void Tick(float DeltaSeconds) override;
 
     // ─────────────────────────────────────────────────────────────
     //  Firing control

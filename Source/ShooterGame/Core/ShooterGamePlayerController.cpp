@@ -1,7 +1,7 @@
 #include "ShooterGamePlayerController.h"
 #include "ShooterGame.h"
-#include "Core/BaseCharacter.h"
-#include "Core/BaseVehicle.h"
+#include "BaseCharacter.h"
+#include "BaseVehicle.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
@@ -68,8 +68,8 @@ void AShooterGamePlayerController::TryEnterVehicle()
         return;
     }
 
-    ABaseCharacter* Character = CachedCharacter.Get();
-    if (!Character)
+    ABaseCharacter* PlayerChar = CachedCharacter.Get();
+    if (!PlayerChar)
     {
         UE_LOG(LogShooterGame, Warning, TEXT("TryEnterVehicle: No cached character."));
         return;
@@ -86,12 +86,9 @@ void AShooterGamePlayerController::TryEnterVehicle()
     {
         if (ABaseVehicle* Vehicle = Cast<ABaseVehicle>(VehicleActor))
         {
-            if (!Vehicle->CanInteract())
-            {
-                continue;
-            }
+            if (!Vehicle->CanInteract()) continue;
 
-            float DistSq = FVector::DistSquared2D(Character->GetActorLocation(), Vehicle->GetActorLocation());
+            float DistSq = FVector::DistSquared2D(PlayerChar->GetActorLocation(), Vehicle->GetActorLocation());
             if (DistSq < NearestDistSq && DistSq <= FMath::Square(Vehicle->GetInteractRange()))
             {
                 NearestDistSq = DistSq;
@@ -102,7 +99,7 @@ void AShooterGamePlayerController::TryEnterVehicle()
 
     if (NearestVehicle)
     {
-        NearestVehicle->EnterVehicle(this, Character);
+        NearestVehicle->EnterVehicle(this, PlayerChar);
     }
     else
     {

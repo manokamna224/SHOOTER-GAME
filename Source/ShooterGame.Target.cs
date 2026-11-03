@@ -6,7 +6,9 @@ public class ShooterGameTarget : TargetRules
     public ShooterGameTarget(TargetInfo Target) : base(Target)
     {
         Type = TargetType.Game;
-        DefaultBuildSettings = BuildSettingsVersion.V5;
+        DefaultBuildSettings = BuildSettingsVersion.V7;
+        IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
+        bOverrideBuildEnvironment = true;
         ExtraModuleNames.Add("ShooterGame");
     }
 }

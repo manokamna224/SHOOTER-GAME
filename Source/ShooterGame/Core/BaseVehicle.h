@@ -59,11 +59,11 @@ public:
 
     /** Called by the PlayerController to enter this vehicle */
     UFUNCTION(BlueprintCallable, Category = "ShooterGame|Vehicle")
-    virtual void EnterVehicle(AShooterGamePlayerController* Controller, ABaseCharacter* Character);
+    virtual void EnterVehicle(AShooterGamePlayerController* InController, ABaseCharacter* InCharacter);
 
     /** Called by the PlayerController to exit this vehicle */
     UFUNCTION(BlueprintCallable, Category = "ShooterGame|Vehicle")
-    virtual void ExitVehicle(AShooterGamePlayerController* Controller, ABaseCharacter* Character);
+    virtual void ExitVehicle(AShooterGamePlayerController* InController, ABaseCharacter* InCharacter);
 
     /** Returns the cached character (hidden inside the vehicle while driving) */
     UFUNCTION(BlueprintPure, Category = "ShooterGame|Vehicle")
@@ -142,7 +142,7 @@ protected:
     bool bHasDriver;
 
     /** Saved collision state of the driver character (restored on exit) */
-    ECollisionEnabled DriverCachedCollision;
+    ECollisionEnabled::Type DriverCachedCollision;
 
     // ─────────────────────────────────────────────────────────────
     //  Input handlers

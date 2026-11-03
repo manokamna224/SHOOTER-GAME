@@ -1,6 +1,6 @@
 #include "BaseWeapon.h"
 #include "ShooterGame.h"
-#include "Core/BaseCharacter.h"
+#include "BaseCharacter.h"
 #include "BaseProjectile.h"
 
 #include "Components/SkeletalMeshComponent.h"

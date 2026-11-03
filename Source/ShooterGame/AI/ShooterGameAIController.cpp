@@ -1,6 +1,6 @@
 #include "ShooterGameAIController.h"
 #include "ShooterGame.h"
-#include "Core/BaseCharacter.h"
+#include "BaseCharacter.h"
 
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BlackboardComponent.h"
@@ -95,7 +95,7 @@ void AShooterGameAIController::UpdateCombatLogic(float DeltaSeconds)
 
         // Check if the target is dead or too far
         ABaseCharacter* TargetCharacter = Cast<ABaseCharacter>(CurrentTarget);
-        if (TargetCharacter && TargetCharacter->IsPendingKill())
+        if (TargetCharacter && (TargetCharacter->IsActorBeingDestroyed() || !IsValid(TargetCharacter)))
         {
             BlackboardComp->SetValueAsObject(TargetEnemyKey, nullptr);
             SetCombatState(EAICombatState::Idle);

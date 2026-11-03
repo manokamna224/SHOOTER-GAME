@@ -1,6 +1,6 @@
 #include "BaseCharacter.h"
 #include "ShooterGame.h"
-#include "Weapons/BaseWeapon.h"
+#include "BaseWeapon.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -68,7 +68,7 @@ void ABaseCharacter::PossessedBy(AController* NewController)
     // Initialize GAS for the server (authority)
     if (AbilitySystemComponent)
     {
-        AbilitySystemComponent->InitAbilityActorInfo(this, this, this);
+        AbilitySystemComponent->InitAbilityActorInfo(this, this);
     }
 
     GrantStartingAbilities();
@@ -81,7 +81,7 @@ void ABaseCharacter::OnRep_PlayerState()
     // Initialize GAS for the client
     if (AbilitySystemComponent)
     {
-        AbilitySystemComponent->InitAbilityActorInfo(this, this, this);
+        AbilitySystemComponent->InitAbilityActorInfo(this, this);
     }
 }
 
@@ -345,7 +345,8 @@ void ABaseCharacter::GrantStartingAbilities()
     {
         if (AbilityClass)
         {
-            FGameplayAbilitySpec Spec(AbilityClass, 1, static_cast<int32>(AbilityClass.GetDefaultObject()->GetInputID()), this);
+            // In UE 5.x GetInputID() was removed - use INDEX_NONE for no input binding
+            FGameplayAbilitySpec Spec(AbilityClass, 1, INDEX_NONE, this);
             AbilitySystemComponent->GiveAbility(Spec);
         }
     }
